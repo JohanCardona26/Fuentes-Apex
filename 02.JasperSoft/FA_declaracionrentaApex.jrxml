@@ -1,0 +1,403 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="98ca4356-3ada-4e18-aab3-6198d0aef1d3">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="APEX212"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="158"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="831"/>
+	<parameter name="NIT_CLIENTE" class="java.lang.String"/>
+	<parameter name="ANIO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT tkobligaciones.VKPNUMERO  numeroCredito,
+       txterceros.VKPCODIGO nitCliente,
+       txterceros.VRNOMBRE || ' ' || txterceros.vapellido1 || ' ' || txterceros.vapellido2 nombreCliente,
+       to_char(tkobligaciones.MRSALDO, 'FML999G999G999G999G990') saldoObligacion,
+       Replace(to_char(sysdate, 'DD "de "Month"del" YYYY'), '  ', '') fechaExpedicion,
+       $P{ANIO}  anoGravable,
+       tkobligaciones.VSUBCATEGORIA DESTINACION,
+       TKOBLIGACIONES.DRFECHA fechaObligacion,
+       to_char(tkobligaciones.mrcapital, 'FML999G999G999G999G990') valorCredito,
+       to_char(NVL(( FUK_OF_VALORES_DOCS (tkobligaciones.VKPNUMERO , tkobligaciones.TIPODOC_VKPCODIGO, 'IMPA', $P{ANIO} )),0),'FML999G999G999G999G990') interesMoraPagado,
+       to_char(NVL(( FUK_OF_VALORES_DOCS (tkobligaciones.VKPNUMERO , tkobligaciones.TIPODOC_VKPCODIGO, 'ICPA', $P{ANIO} )),0),'FML999G999G999G999G990') interesCausadoPagado,
+       to_char(NVL(( FUK_OF_VALORES_DOCS (tkobligaciones.VKPNUMERO , tkobligaciones.TIPODOC_VKPCODIGO, 'SFA' , $P{ANIO} )),0),'FML999G999G999G999G990') saldoCierreAno,
+       to_char(NVL(( FUK_OF_VALORES_DOCS (tkobligaciones.VKPNUMERO , tkobligaciones.TIPODOC_VKPCODIGO, 'SCFA', $P{ANIO} )),0),'FML999G999G999G999G990') saldoCapitalCierre,
+       to_char(NVL(( FUK_OF_VALORES_DOCS (tkobligaciones.VKPNUMERO , tkobligaciones.TIPODOC_VKPCODIGO, 'IPA' , $P{ANIO} )),0),'FML999G999G999G999G990') interesPagadoAnual,
+       to_char(NVL(( FUK_OF_VALORES_DOCS (tkobligaciones.VKPNUMERO , tkobligaciones.TIPODOC_VKPCODIGO, 'OTR' , $P{ANIO} )),0), 'FML999G999G999G999G990') otrosCargos,
+       to_char(NVL(( FUK_OF_VALORES_DOCS (tkobligaciones.VKPNUMERO , tkobligaciones.TIPODOC_VKPCODIGO, 'COBPAGANO' , $P{ANIO} )),0), 'FML999G999G999G999G990') cobranzaPagada,
+       to_char(NVL(( FUK_OF_VALORES_DOCS (tkobligaciones.VKPNUMERO , tkobligaciones.TIPODOC_VKPCODIGO, 'SEGPAGANO' , $P{ANIO} )),0), 'FML999G999G999G999G990') segurosPagos,
+       to_char(NVL(( FUK_OF_VALORES_DOCS (tkobligaciones.VKPNUMERO , tkobligaciones.TIPODOC_VKPCODIGO, 'CAPITANUAL' , $P{ANIO} )),0), 'FML999G999G999G999G990') captalPago,
+       to_char(NVL(( FUK_OF_VALORES_DOCS (tkobligaciones.VKPNUMERO , tkobligaciones.TIPODOC_VKPCODIGO, 'OTRVALOR' , $P{ANIO} )),0), 'FML999G999G999G999G990') OTROSVALORES,
+       to_char(NVL(( FUK_OF_VALORES_DOCS (tkobligaciones.VKPNUMERO , tkobligaciones.TIPODOC_VKPCODIGO, 'FCC' , $P{ANIO} )),0), 'FML999G999G999G999G990') FONDOCOBERTURAS,
+       case 
+            when Tipcliente_Vkpcodigo = dp_comun.leer('EMP_TIPCLIEW') then
+                'Que ' || txterceros.VRNOMBRE || ' ' || txterceros.vapellido1 || ' ' || txterceros.vapellido2 ||', identificado/a con Nit '|| txterceros.vkpcodigo || ', durante el año '|| $P{ANIO} ||' presentó la siguiente información:'
+            else
+                'Que el/la señor/a ' || txterceros.VRNOMBRE || ' ' || txterceros.vapellido1 || ' ' || txterceros.vapellido2 ||', identificado/a con cedula de ciudadanía número '|| txterceros.vkpcodigo || ', durante el año '|| $P{ANIO} ||'  presentó la siguiente información:'
+       end as Leyenda,
+       (
+            SELECT VRNIT || '-' || NDIGITOVERIFICACION
+            FROM TXEMPRESAS
+            WHERE MOD_VKPCODIGO = 'YAMAHA'
+       ) nitEmpresa
+FROM TKOBLIGACIONES, 
+     TXTERCEROS,
+     TKCLIENTES
+WHERE TKOBLIGACIONES.CLIENTE_TERC_VKPCODIGO     = TXTERCEROS.vkpcodigo
+  AND TXTERCEROS.vkpcodigo                      = TKCLIENTES.TERC_VKPCODIGO
+  AND TXTERCEROS.VKPCODIGO                      = $P{NIT_CLIENTE}
+  and to_char(TKOBLIGACIONES.DRFECHA, 'YYYY')          <= $P{ANIO}
+  AND to_char(TKOBLIGACIONES.DVENCIMIENTO, 'YYYY')     >= $P{ANIO}
+  AND NVL(TKOBLIGACIONES.FRANULADO,'N')           = 'N'
+  and TKOBLIGACIONES.TIPODOC_VKPCODIGO            != '01SFR'
+  and TKOBLIGACIONES.TIPODOC_VKPCODIGO            != '01SFW'
+ORDER BY TKOBLIGACIONES.DRFECHA DESC]]>
+	</queryString>
+	<field name="NUMEROCREDITO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NUMEROCREDITO"/>
+		<property name="com.jaspersoft.studio.field.label" value="NUMEROCREDITO"/>
+	</field>
+	<field name="NITCLIENTE" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NITCLIENTE"/>
+		<property name="com.jaspersoft.studio.field.label" value="NITCLIENTE"/>
+	</field>
+	<field name="NOMBRECLIENTE" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NOMBRECLIENTE"/>
+		<property name="com.jaspersoft.studio.field.label" value="NOMBRECLIENTE"/>
+	</field>
+	<field name="SALDOOBLIGACION" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="SALDOOBLIGACION"/>
+		<property name="com.jaspersoft.studio.field.label" value="SALDOOBLIGACION"/>
+	</field>
+	<field name="FECHAEXPEDICION" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="FECHAEXPEDICION"/>
+		<property name="com.jaspersoft.studio.field.label" value="FECHAEXPEDICION"/>
+	</field>
+	<field name="ANOGRAVABLE" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ANOGRAVABLE"/>
+		<property name="com.jaspersoft.studio.field.label" value="ANOGRAVABLE"/>
+	</field>
+	<field name="DESTINACION" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="DESTINACION"/>
+		<property name="com.jaspersoft.studio.field.label" value="DESTINACION"/>
+	</field>
+	<field name="FECHAOBLIGACION" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="FECHAOBLIGACION"/>
+		<property name="com.jaspersoft.studio.field.label" value="FECHAOBLIGACION"/>
+	</field>
+	<field name="VALORCREDITO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="VALORCREDITO"/>
+		<property name="com.jaspersoft.studio.field.label" value="VALORCREDITO"/>
+	</field>
+	<field name="INTERESMORAPAGADO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="INTERESMORAPAGADO"/>
+		<property name="com.jaspersoft.studio.field.label" value="INTERESMORAPAGADO"/>
+	</field>
+	<field name="INTERESCAUSADOPAGADO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="INTERESCAUSADOPAGADO"/>
+		<property name="com.jaspersoft.studio.field.label" value="INTERESCAUSADOPAGADO"/>
+	</field>
+	<field name="SALDOCIERREANO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="SALDOCIERREANO"/>
+		<property name="com.jaspersoft.studio.field.label" value="SALDOCIERREANO"/>
+	</field>
+	<field name="SALDOCAPITALCIERRE" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="SALDOCAPITALCIERRE"/>
+		<property name="com.jaspersoft.studio.field.label" value="SALDOCAPITALCIERRE"/>
+	</field>
+	<field name="INTERESPAGADOANUAL" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="INTERESPAGADOANUAL"/>
+		<property name="com.jaspersoft.studio.field.label" value="INTERESPAGADOANUAL"/>
+	</field>
+	<field name="OTROSCARGOS" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="OTROSCARGOS"/>
+		<property name="com.jaspersoft.studio.field.label" value="OTROSCARGOS"/>
+	</field>
+	<field name="COBRANZAPAGADA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="COBRANZAPAGADA"/>
+		<property name="com.jaspersoft.studio.field.label" value="COBRANZAPAGADA"/>
+	</field>
+	<field name="SEGUROSPAGOS" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="SEGUROSPAGOS"/>
+		<property name="com.jaspersoft.studio.field.label" value="SEGUROSPAGOS"/>
+	</field>
+	<field name="CAPTALPAGO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="CAPTALPAGO"/>
+		<property name="com.jaspersoft.studio.field.label" value="CAPTALPAGO"/>
+	</field>
+	<field name="OTROSVALORES" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="OTROSVALORES"/>
+		<property name="com.jaspersoft.studio.field.label" value="OTROSVALORES"/>
+	</field>
+	<field name="FONDOCOBERTURAS" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="FONDOCOBERTURAS"/>
+		<property name="com.jaspersoft.studio.field.label" value="FONDOCOBERTURAS"/>
+	</field>
+	<field name="LEYENDA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="LEYENDA"/>
+		<property name="com.jaspersoft.studio.field.label" value="LEYENDA"/>
+	</field>
+	<field name="NITEMPRESA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NITEMPRESA"/>
+		<property name="com.jaspersoft.studio.field.label" value="NITEMPRESA"/>
+	</field>
+	<title>
+		<band height="10" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="84" splitType="Stretch">
+			<staticText>
+				<reportElement x="239" y="31" width="298" height="29" uuid="d49b86da-c877-4627-94a7-df2ca2e28f61"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE ANUAL DE COSTOS TOTALES]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="270" y="61" width="223" height="20" uuid="c0f69f71-da17-4eee-9687-3b2250875679"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Año gravable " + $P{ANIO}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement mode="Transparent" x="26" y="1" width="174" height="69" uuid="35491ba2-862b-480a-a3c6-17a0596a0cbf"/>
+				<box topPadding="20" leftPadding="0" bottomPadding="0" rightPadding="0"/>
+				<imageExpression><![CDATA[logo_yamaha.png]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="38" splitType="Stretch">
+			<textField>
+				<reportElement x="28" y="5" width="292" height="30" uuid="ee325d04-656d-4b27-9031-1375354f7aa0"/>
+				<textFieldExpression><![CDATA["Medellín,  " + $F{FECHAEXPEDICION}.replaceAll( " ", "" )]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="501" splitType="Stretch">
+			<staticText>
+				<reportElement x="28" y="98" width="162" height="24" uuid="0da04a1e-4751-444a-bafb-fb310e501401">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ff4bb759-1f90-4cf0-a495-75a39c84f4f6"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" markup="none">
+					<font isBold="true"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[SALDO CRÉDITOS:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="283" y="127" width="238" height="18" uuid="5f855a13-5bdd-4b10-955f-b757512d3e7e">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c89f4036-a5f6-4d1b-882a-0b68a356e889"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{NUMEROCREDITO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="28" y="127" width="172" height="18" uuid="50f73648-f8b8-4fd3-ab3b-f6082f854488">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c89f4036-a5f6-4d1b-882a-0b68a356e889"/>
+				</reportElement>
+				<text><![CDATA[N° obligación:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="283" y="153" width="238" height="20" uuid="e9bbf19c-d6f1-4aff-a34a-92843db9a9c5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3e9fd623-b80e-420f-81fa-91af893a399c"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{DESTINACION}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="28" y="153" width="172" height="20" uuid="51300b23-2dd6-48b3-b101-1d74238d14fb">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3e9fd623-b80e-420f-81fa-91af893a399c"/>
+				</reportElement>
+				<text><![CDATA[Destinación:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="283" y="178" width="238" height="20" uuid="4bec0591-9df8-4d78-a189-82c8ef9f999e"/>
+				<textFieldExpression><![CDATA[$F{VALORCREDITO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="28" y="178" width="172" height="20" uuid="98244c8b-d51b-4a05-9838-c77fd7e1f46f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3e9fd623-b80e-420f-81fa-91af893a399c"/>
+				</reportElement>
+				<text><![CDATA[Valor inicial del credito:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="248" width="172" height="20" uuid="d6700959-664f-49c0-b78e-4e681cfc015b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3e9fd623-b80e-420f-81fa-91af893a399c"/>
+				</reportElement>
+				<text><![CDATA[Saldo a cierre de año:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="283" y="248" width="238" height="20" uuid="41b2d871-6a46-4bd6-aa30-5e8fb372290d"/>
+				<textFieldExpression><![CDATA[$F{SALDOCIERREANO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="283" y="272" width="238" height="20" uuid="ecf5e736-7f96-4d5f-b57d-fe0b3af97f33">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2f646b23-ddb6-4976-ab89-13420778c572"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{INTERESCAUSADOPAGADO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="28" y="272" width="172" height="20" uuid="e44ba01e-538e-4943-b8da-7e0e7662e54c">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2f646b23-ddb6-4976-ab89-13420778c572"/>
+				</reportElement>
+				<text><![CDATA[interes corriente pagado en el año:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="283" y="200" width="238" height="20" uuid="d846cb00-7ec9-4884-8db4-b5a674ae55e8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="092f3a4f-a85f-400d-b9b0-a2561505f3f0"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{CAPTALPAGO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="28" y="200" width="172" height="20" uuid="d1d3b8f2-f30e-40c7-b4ae-3c7e20fbaef1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="092f3a4f-a85f-400d-b9b0-a2561505f3f0"/>
+				</reportElement>
+				<text><![CDATA[Capital pagado en el año:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="283" y="323" width="238" height="20" uuid="19c6692b-a57b-4a2e-a510-5825dcbda020">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="195474ec-3882-4b43-b01f-faf149fe40a5"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{OTROSCARGOS}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="28" y="323" width="172" height="20" uuid="7183f462-e61f-412d-8aee-8d0019a91c48">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="195474ec-3882-4b43-b01f-faf149fe40a5"/>
+				</reportElement>
+				<text><![CDATA[Otros conceptos pagados en el año:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="28" y="6" width="502" height="30" uuid="f55c18a1-cf60-476c-92a3-d7871b46026f"/>
+				<textFieldExpression><![CDATA["Yamaha Servicios Financieros con Nit N° " + $F{NITEMPRESA} + " informa:"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="28" y="41" width="502" height="49" uuid="3f05d351-9062-43cb-b7bc-1b7bbb4f95a1"/>
+				<textFieldExpression><![CDATA[$F{LEYENDA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="28" y="85" width="502" height="20" uuid="0d1608e9-a6ad-4c19-b6b7-b4b682408c20"/>
+				<textElement>
+					<font fontName="Algerian" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[________________________________________________________________________________________________________________________________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="106" width="502" height="20" uuid="6fdd650d-79b6-48ac-b27b-83219eddab87"/>
+				<textElement>
+					<font fontName="Algerian" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[________________________________________________________________________________________________________________________________________________________________]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="283" y="298" width="238" height="20" uuid="2a63ecee-3f28-4fb5-a55b-ea139223f594">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2f646b23-ddb6-4976-ab89-13420778c572"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{INTERESMORAPAGADO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="28" y="298" width="172" height="20" uuid="af5a780e-003e-4c70-81a7-5430c4914de0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2f646b23-ddb6-4976-ab89-13420778c572"/>
+				</reportElement>
+				<text><![CDATA[interes mora pagado en el año:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="349" width="180" height="24" uuid="a157a47d-dd79-4f71-b2ae-8904ec88a2c2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ff4bb759-1f90-4cf0-a495-75a39c84f4f6"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle" rotation="None" markup="none">
+					<font isBold="true"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<text><![CDATA[PAGOS A FAVOR DE TERCEROS:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="336" width="502" height="20" uuid="24b5b914-bbca-404a-b21e-780b26b30026"/>
+				<textElement>
+					<font fontName="Algerian" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[________________________________________________________________________________________________________________________________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="28" y="356" width="502" height="20" uuid="b6e5b763-ffb0-490c-a59f-b5f905452f8a"/>
+				<textElement>
+					<font fontName="Algerian" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[________________________________________________________________________________________________________________________________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="397" width="170" height="20" uuid="e25db7c1-33a9-49ec-bad1-27ef31592332">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3e9fd623-b80e-420f-81fa-91af893a399c"/>
+				</reportElement>
+				<text><![CDATA[Seguros:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="418" width="170" height="20" uuid="d5de422c-2024-43ff-a8f5-6ba28236ce30">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3e9fd623-b80e-420f-81fa-91af893a399c"/>
+				</reportElement>
+				<text><![CDATA[Gastos de Cobranza:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="438" width="170" height="20" uuid="4fde3919-4989-4eb2-8f89-238dc6718ba0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3e9fd623-b80e-420f-81fa-91af893a399c"/>
+				</reportElement>
+				<text><![CDATA[Otros:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="283" y="397" width="238" height="20" uuid="ca106d31-de7c-4770-9263-956032074bad">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2f646b23-ddb6-4976-ab89-13420778c572"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{SEGUROSPAGOS}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="283" y="438" width="237" height="20" uuid="b2f5ee36-6cdf-4a9d-afe9-c4980ccf9421">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="195474ec-3882-4b43-b01f-faf149fe40a5"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{OTROSVALORES}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="283" y="418" width="238" height="20" uuid="0726ae1b-7336-46b2-aad2-2d834e29263a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2f646b23-ddb6-4976-ab89-13420778c572"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{COBRANZAPAGADA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="283" y="375" width="238" height="20" uuid="82543158-b436-4deb-a605-d0842d7da1f3">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2f646b23-ddb6-4976-ab89-13420778c572"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{FONDOCOBERTURAS}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="29" y="375" width="170" height="20" uuid="2692af04-b627-43c0-bdff-d5531382c9e8">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3e9fd623-b80e-420f-81fa-91af893a399c"/>
+				</reportElement>
+				<text><![CDATA[Fondo de Coberturas crediticias ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="283" y="224" width="238" height="20" uuid="f8c04bc1-6cb8-432b-8f28-e420e2d02586">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="092f3a4f-a85f-400d-b9b0-a2561505f3f0"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{SALDOCAPITALCIERRE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="28" y="224" width="172" height="20" uuid="f1c0ddb6-3f24-41da-a628-748418649949">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="092f3a4f-a85f-400d-b9b0-a2561505f3f0"/>
+				</reportElement>
+				<text><![CDATA[Saldo de capital a cierre de año:]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="45">
+			<staticText>
+				<reportElement x="26" y="5" width="496" height="40" forecolor="#918D8D" uuid="7027ae8b-d3da-43db-99c9-fb2bda02a5bf"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Yamaha Motor Finance Colombia SAS NIT 901.603.279-4
+Carrera 38 N° 26-41 Oficina 433 Torre 3 Edificio Bio 26 Medellín
+Tel. 3229020
+]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

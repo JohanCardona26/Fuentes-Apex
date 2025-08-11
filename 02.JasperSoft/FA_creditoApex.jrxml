@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3417a621-f6d9-4052-bd25-392cfa6fddce">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="APEX212"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="NIT_CLIENTE" class="java.lang.String"/>
+	<parameter name="NUMERO_OBLIGACION" class="java.lang.String"/>
+	<parameter name="TIPO_DOC" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+    O.VKPNUMERO,
+    C.VKPCODIGO,
+    C.VRNOMBRE || ' ' || c.VAPELLIDO1 || ' ' || c.vapellido2  Nombrecliente,
+    to_char(O.MRSALDO, 'FML999G999G999G999G990D00') SALDO,
+    NVL(dp_comun.leer('EMP_CELAPEX'), '') DESDE_CELULAR, 
+    NVL(dp_comun.leer('EMP_TMEDAPEX'), '') MEDELLIN, 
+    NVL(dp_comun.leer('EMP_TBOGAPEX'), '') BOGOTA, 
+    NVL(dp_comun.leer('EMP_TOTRAPEX'), '') OTRAS_ZONAS,
+     NVL(dp_comun.leer('EMP_TELCALI'), '') CALI,
+    (
+        SELECT VCORREO
+        FROM TXEMPRESAS
+        WHERE VRNIT = '901603279'
+    ) CORREO,
+   	Replace(to_char(sysdate, 'DD "de "Month" del" YYYY'), '  ', '') fecha,
+   	(
+        SELECT VRNIT
+        FROM TXEMPRESAS
+        WHERE VRNIT = '901603279'
+    ) VRNIT,
+    DECODE(FX_Estatus_Usuario_Apex('USU_TIPOAPEX', UPPER(U.VKPUSUARIOORACLE)), 'D', 'el cliente' , 'R', '') Complemento,
+    DECODE(FX_Estatus_Usuario_Apex('USU_TIPOAPEX', UPPER(U.VKPUSUARIOORACLE)), 'D', 'distribuidor' , 'R', ' ') rol,
+    DECODE(FX_Estatus_Usuario_Apex('USU_TIPOAPEX', UPPER(U.VKPUSUARIOORACLE)), 'D', 'con Nit' , 'R', 'identificado con cédula de ciudadania') tipo_documentoId
+FROM 
+    TKOBLIGACIONES O, 
+    TXTERCEROS C, 
+    TXUSUARIOS U
+WHERE c.vkpcodigo = O.CLIENTE_TERC_VKPCODIGO
+AND O.CLIENTE_TERC_VKPCODIGO = u.EMPLE_PERSO_TERC_VKPCODIGO
+AND O.FRANULADO = 'N'
+and  NVL(FUK_DIASMORA_CREDITO(o.TIPODOC_VKPCODIGO, o.VKPNUMERO), 0) <= 0
+AND C.vkpcodigo = $P{NIT_CLIENTE}
+AND o.vkpnumero = $P{NUMERO_OBLIGACION}
+AND O.TIPODOC_VKPCODIGO = $P{TIPO_DOC}]]>
+	</queryString>
+	<field name="VKPNUMERO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="VKPNUMERO"/>
+		<property name="com.jaspersoft.studio.field.label" value="VKPNUMERO"/>
+	</field>
+	<field name="VKPCODIGO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="VKPCODIGO"/>
+		<property name="com.jaspersoft.studio.field.label" value="VKPCODIGO"/>
+	</field>
+	<field name="NOMBRECLIENTE" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NOMBRECLIENTE"/>
+		<property name="com.jaspersoft.studio.field.label" value="NOMBRECLIENTE"/>
+	</field>
+	<field name="SALDO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="SALDO"/>
+		<property name="com.jaspersoft.studio.field.label" value="SALDO"/>
+	</field>
+	<field name="DESDE_CELULAR" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="DESDE_CELULAR"/>
+		<property name="com.jaspersoft.studio.field.label" value="DESDE_CELULAR"/>
+	</field>
+	<field name="MEDELLIN" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="MEDELLIN"/>
+		<property name="com.jaspersoft.studio.field.label" value="MEDELLIN"/>
+	</field>
+	<field name="BOGOTA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="BOGOTA"/>
+		<property name="com.jaspersoft.studio.field.label" value="BOGOTA"/>
+	</field>
+	<field name="OTRAS_ZONAS" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="OTRAS_ZONAS"/>
+		<property name="com.jaspersoft.studio.field.label" value="OTRAS_ZONAS"/>
+	</field>
+	<field name="CALI" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="CALI"/>
+		<property name="com.jaspersoft.studio.field.label" value="CALI"/>
+	</field>
+	<field name="CORREO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="CORREO"/>
+		<property name="com.jaspersoft.studio.field.label" value="CORREO"/>
+	</field>
+	<field name="FECHA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="FECHA"/>
+		<property name="com.jaspersoft.studio.field.label" value="FECHA"/>
+	</field>
+	<field name="VRNIT" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="VRNIT"/>
+		<property name="com.jaspersoft.studio.field.label" value="VRNIT"/>
+	</field>
+	<field name="COMPLEMENTO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="COMPLEMENTO"/>
+		<property name="com.jaspersoft.studio.field.label" value="COMPLEMENTO"/>
+	</field>
+	<field name="ROL" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ROL"/>
+		<property name="com.jaspersoft.studio.field.label" value="ROL"/>
+	</field>
+	<field name="TIPO_DOCUMENTOID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="TIPO_DOCUMENTOID"/>
+		<property name="com.jaspersoft.studio.field.label" value="TIPO_DOCUMENTOID"/>
+	</field>
+	<title>
+		<band height="30" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="103" splitType="Stretch">
+			<textField>
+				<reportElement x="219" y="21" width="290" height="30" uuid="0b2fa56b-3560-4af6-8c37-e29e921305d9"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Certificado crédito al día " + $F{ROL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="37" y="80" width="503" height="20" uuid="0a6c022b-4e29-4e75-8b69-d55b8eadb244"/>
+				<textElement textAlignment="Center" verticalAlignment="Justified">
+					<font fontName="Algerian" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[____________________________________________________________________________________________________________________________________________________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="0" width="503" height="20" uuid="814dddd8-7395-4a9d-a85b-d8bb0f0dd8eb"/>
+				<textElement textAlignment="Center" verticalAlignment="Justified">
+					<font fontName="Algerian" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[____________________________________________________________________________________________________________________________________________________________________]]></text>
+			</staticText>
+			<image>
+				<reportElement mode="Transparent" x="45" y="22" width="151" height="63" uuid="f6beb277-a7e7-4f8f-ac7a-2a8f60529617"/>
+				<box topPadding="20" leftPadding="0" bottomPadding="0" rightPadding="0"/>
+				<imageExpression><![CDATA[logo_yamaha.png]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="442" splitType="Stretch">
+			<textField>
+				<reportElement x="37" y="69" width="503" height="72" uuid="f50db59a-ed47-4de3-aa4f-ba63066557a9"/>
+				<textFieldExpression><![CDATA["YAMAHA SERVICIOS FINANCIEROS se permite certificar que " + $F{COMPLEMENTO} +" " +  $F{NOMBRECLIENTE} + ", " + $F{TIPO_DOCUMENTOID}  + "  No. " + $P{NIT_CLIENTE} + " a la fecha de la expedición de esta certificación se encuentra vigente y al día en el pago de las cuotas por la obligación con referencia de crédito No. " + $F{VKPNUMERO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="37" y="10" width="200" height="20" uuid="04d135d8-bcdd-42c1-873b-2426ab0a7dc7"/>
+				<textFieldExpression><![CDATA["Medellín , " + $F{FECHA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="192" y="40" width="194" height="17" uuid="99e209f5-1a46-45ab-aa06-421d902bcb49"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[A QUIEN PUEDA INTERESAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="170" width="100" height="22" uuid="4e005ef0-a26b-4e43-b075-48761c43ebbe"/>
+				<text><![CDATA[Cordialmente,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="220" width="100" height="23" uuid="3a3a23ca-e05f-46f8-b6e8-235ef8656c74"/>
+				<text><![CDATA[Firma ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="243" width="170" height="23" uuid="19273a76-a01f-42f5-84ad-089fe9c70507"/>
+				<text><![CDATA[Analista Financiera de cartera]]></text>
+			</staticText>
+			<image>
+				<reportElement mode="Transparent" x="80" y="207" width="149" height="36" uuid="05348b13-9dcf-4bb8-a8a4-e438dbffab90"/>
+				<box topPadding="20" leftPadding="0" bottomPadding="0" rightPadding="0"/>
+				<imageExpression><![CDATA[FIRMA_DIGITAL.jpg]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="170" y="277" width="198" height="20" uuid="9f8bdf9d-fc6e-489b-9490-487e4bc39c7e"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[CANALES DE ATENCIÓN AL CLIENTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="332" width="55" height="18" uuid="0171a40f-8155-4666-9433-26a2f8b85c37"/>
+				<text><![CDATA[Whatsapp:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="350" width="335" height="16" uuid="45321564-9a9f-4a3d-9ef3-01ece793d4a6"/>
+				<text><![CDATA[LÍNEAS TELEFONICAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="367" width="45" height="14" uuid="ce9bac33-2b5b-4911-b21e-1e10c8c6d8df"/>
+				<text><![CDATA[Medellín: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="384" width="45" height="15" uuid="96e647d6-c27e-4b96-bbee-634fa423f20f"/>
+				<text><![CDATA[Bogotá: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="40" y="415" width="35" height="15" uuid="39134d23-c659-487b-b685-9f90e9373931"/>
+				<text><![CDATA[Línea:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="77" y="315" width="298" height="17" uuid="3d3e6241-94c9-44ea-81d8-04bd9694295d">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="44ed6019-b140-4ad9-b968-da99effd9c99"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{CORREO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="95" y="333" width="280" height="17" uuid="9a050620-09e5-415e-a48e-5283457e4519">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2d22f75f-f611-411a-b4ff-674e3da9e6fd"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{DESDE_CELULAR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="87" y="367" width="290" height="14" uuid="219e6c15-f1be-4ee9-8c20-fed62a5a4ef5">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5f7d88bb-822d-41cd-8af5-f1d3ab37b4fc"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{MEDELLIN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="87" y="384" width="290" height="15" uuid="9134a649-ab31-439e-891d-54274623b035">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1564c786-7ef6-41b8-9db9-edb0c05dfc14"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{BOGOTA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="87" y="415" width="290" height="15" uuid="42ec399b-da70-45a5-9a8a-1ffd6c2dcb89">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ef3fcef5-7e39-4ca1-8677-7c66ec42658b"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{OTRAS_ZONAS}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="399" width="35" height="15" uuid="e07cd93d-e764-4069-83c3-118625496421"/>
+				<text><![CDATA[Cali:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="87" y="399" width="290" height="15" uuid="c147f4de-8eba-44f9-98ae-d066ec447fee">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1564c786-7ef6-41b8-9db9-edb0c05dfc14"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{CALI}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="40" y="314" width="37" height="18" uuid="df5edd70-ab55-4169-a6cd-50afad6f68b9"/>
+				<text><![CDATA[Correo: ]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="39">
+			<staticText>
+				<reportElement x="42" y="10" width="310" height="20" uuid="49cf940c-4851-44dc-9c66-cb14fc88224f"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Propiedad de YAMAHA SERVICIOS FINANCIEROS
+]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

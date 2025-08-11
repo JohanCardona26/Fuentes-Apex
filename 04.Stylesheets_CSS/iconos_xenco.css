@@ -1,0 +1,598 @@
+/*
+** TENER EN CUENTA QUE ESTE ARCHIVO SOLO ES PARA GESTION DE ICONOS, SI SE TRATA DE DISEÑO, FAVOR NO INCLUIR**********************
+
+ * NOV 21 2023. Johan Cardona. Estandarizacion de clases, iconos 2023 ultimo diseño y otros ajustes de diseño
+
+*/
+
+/*Logo de la empresa*/
+.t-logo-empresa {
+    background: url(Iconos/logoEmpresa.png) no-repeat center bottom fixed !important;
+}
+/*Imagen de xxenco. Nuevo Login Safix*/
+span.t-login-xxenco {
+    background: url(Iconos2023/xxenco.png) no-repeat center bottom fixed !important;
+}
+
+/*Backgroud de la aplicacion*/
+.t-PageBody .t-Body{
+    background: url(Iconos/fondoapex.png) no-repeat center center fixed !Important;
+   -webkit-background-size: cover !important;
+   -moz-background-size: cover !important;
+   -o-background-size: cover !important;
+   background-size: cover !important;
+   background-attachment: fixed !important;
+}
+
+/*Background del login*/
+.t-PageBody--login .t-Body {
+    background: url(Iconos/fondoapex.png) !important;
+    background-repeat: no-repeat;
+    background-size: cover !important;
+    background-position: top;
+}
+
+/*Iconos alternativos del login ***NO QUITAR*** */
+.t-Button--headerUser, .t-NavigationBar-item.hide_download_app .t-Button-label, .hide_download_app {
+    color: white !important;
+    font-weight: 400;
+}
+
+.t-copy-r{text-align: center;}
+
+.t-Body-contentInner{
+    padding-top: 0.5%;
+}
+
+.t-Login-footer {
+    width: 100%;
+}
+
+
+span.t-Login-logo{
+    background-image: url(Iconos/logoEmpresa.png) !important;
+    background-size: cover !important;
+    width: 350px !important;
+    height: 150px !important;
+    display: block;
+}
+
+
+span.t-Login-xenco {
+    background-image: url(rvlogos/xenco_white_log.png);
+    background-size: cover;
+    width: 350px;
+    height: 68px;
+    display: block !important;
+}
+
+/*Ajustes fa-iconos*/
+.fa-plus-circle{
+    color: #22747A  !important;
+}
+
+span.t-Icon.fa.fa-question{
+    color: rgba(159, 62, 94, 1) !important;
+    font-size: -webkit-xxx-large;
+}
+
+span.t-Icon.fa.fa-motorcycle.fa-2x.fa-lg{
+    color: rgba(159, 62, 94, 1) !important;
+}
+
+/*INICIO icon_aparence*/
+/*Clase para control de hover de iconos con otro alternativo para el hover*/
+.icon_aparence {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+  text-align: center;
+  line-height: 64px;
+}
+
+.icon_aparence::before,
+.icon_aparence::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.icon_aparence:hover::before {
+  opacity: 0; 
+}
+
+.icon_aparence:hover::after {
+  opacity: 1; 
+}
+
+/*FIN icon_aparence*/
+
+/*Star Iconos Modulos*/
+
+/*Activos Fijos*/
+.activosf {
+    content: url(Iconos2023/activosf_64x64.gif);
+}
+.t-login-activosf::before {
+    content: url(Iconos2023/activosf_64x64.gif);
+}
+.t-login-activosf::after {
+    content: url(Iconos2023/activosf2_64x64.gif);
+    opacity:0
+}
+
+/*Administrador*/
+.admin{
+    content: url(Iconos2023/admin_64x64.gif) !important;
+}
+.t-login-admin::before{
+	content: url(Iconos2023/admin_64x64.gif) !important;
+}
+.t-login-admin:after{
+	content: url(Iconos2023/admin2_64x64.gif) !important;
+    opacity:0
+}
+
+/*Cartera*/
+.cartera {
+    content: url(Iconos2023/cartera_64x64.gif) !important;
+}
+.t-login-cartera::before{
+	content: url(Iconos2023/cartera_64x64.gif) !important;}
+.t-login-cartera:after{
+	content: url(Iconos2023/cartera2_64x64.gif) !important;
+    opacity:0
+}
+
+/*Cartera Cuotas*/
+.cartcuo{
+    content: url(Iconos2023/cartcuo_64x64.gif) !important;
+}
+.t-login-cartcuo::before{
+	content: url(Iconos2023/cartcuo_64x64.gif) !important;
+}
+.t-login-cartcuo:after{
+	content: url(Iconos2023/cartcuo2_64x64.gif) !important;
+    opacity:0
+}
+
+/*icono Contabilidad*/
+.contabil{
+    content: url(Iconos/contabil.png) !important;
+}
+.t-login-contabil{
+    content: url(Iconos/contabil.png) !important;
+} 
+.t-login-contabil{
+    content: url(Iconos/contabil.png) !important;
+} 
+
+/*Gestion Hospitalaria*/
+.geshosp{
+	content: url(Iconos2023/geshosp_64x64.gif) !important;}
+.t-login-geshosp::before{
+	content: url(Iconos2023/geshosp_64x64.gif) !important;}
+.t-login-geshosp:after{
+	content: url(Iconos2023/geshosp2_64x64.gif) !important;
+    opacity:0
+}
+
+/*Historia clinica*/
+.historia{
+	content: url(Iconos2023/historia_64x64.gif) !important;}
+.t-login-historia::before{
+	content: url(Iconos2023/historia_64x64.gif) !important;}
+.t-login-historia:after{
+	content: url(Iconos2023/historia2_64x64.gif) !important;
+    opacity:0
+}
+
+/*Contabilidad Niif*/
+.niif{
+	content: url(Iconos2023/coniiif_64x64.gif) !important;}
+.t-login-niif::before{
+	content: url(Iconos2023/coniiif_64x64.gif) !important;}
+.t-login-niif:after{
+	content: url(Iconos2023/coniiif2_64x64.gif) !important;
+    opacity:0
+}
+
+/*Contabilidad Niif*/
+.conniiif{
+    content: url(Iconos2023/coniiif_64x64.gif) !important;}
+.t-login-conniiif::before{
+    content: url(Iconos2023/coniiif_64x64.gif) !important;}
+.t-login-conniiif:after{
+    content: url(Iconos2023/coniiif2_64x64.gif) !important;
+    opacity:0
+}
+
+/*Coorporativo*/
+.corporat{
+    content: url(Iconos2023/corporat_64x64.gif) !important;}
+.t-login-corporat::before{
+    content: url(Iconos2023/corporat_64x64.gif) !important;}
+.t-login-corporat:after{
+    content: url(Iconos2023/corporat2_64x64.gif) !important;
+    opacity:0
+}
+
+/*Apex*/
+.apex{
+	content: url(Iconos2023/apex_64x64.gif) !important;}
+.t-login-apex::before{
+	content: url(Iconos2023/apex_64x64.gif) !important;}
+.t-login-apex:after{
+	content: url(Iconos2023/apex2_64x64.gif) !important;
+    opacity:0
+}
+
+/*Inventario*/
+.inventar{
+    content: url(Iconos2023/inventar_64x64.gif) !important;} 
+.t-login-inventar::before{
+    content: url(Iconos2023/inventar_64x64.gif) !important;} 
+.t-login-inventar:after{
+    content: url(Iconos2023/inventar2_64x64.gif) !important;
+    opacity: 0;
+}
+    
+
+/*Nomina*/   
+.nomina{
+	content: url(Iconos/nomina.png) !important;}
+.t-login-nomina::before{
+	content: url(Iconos/nomina.png) !important;}
+.t-login-nomina:after{
+	content: url(Iconos/nomina.png) !important;
+    opacity:0
+}
+
+/*Resoluciones*/
+.scontrat{
+	content: url(Iconos/scontrat.png) !important;}
+.t-login-scontrat::before{
+	content: url(Iconos/scontrat.png) !important;}
+.t-login-scontrat:after{
+	content: url(Iconos/scontrat.png) !important;
+    opacity:0
+}
+
+/*Tesoreria*/
+.tesoreri{
+	content: url(Iconos/tesoreri.png) !important;}
+.t-login-tesoreri::before{
+	content: url(Iconos/tesoreri.png) !important;}
+.t-login-tesoreri:after{
+	content: url(Iconos/tesoreri.png) !important;
+    opacity:0
+}
+
+/*Juridico*/
+.juridico{
+    content: url(Iconos2023/juridico_64x64.gif) !important;}
+.t-login-juridico::before{
+    content: url(Iconos2023/juridico_64x64.gif) !important;}
+.t-login-juridico:after{
+    content: url(Iconos2023/juridico2_64x64.gif) !important;
+    opacity:0
+}
+
+/*tesorieria*/    
+.tfrecuen{
+	content: url(Iconos/tfrecuen.png) !important;}
+.t-login-tfrecuen::before{
+	content: url(Iconos/tfrecuen.png) !important;}
+.t-login-tfrecuen:after{
+	content: url(Iconos/tfrecuen.png) !important;
+    opacity:0
+}
+
+/*End Iconos Modulos*/
+
+/*Start Iconos Formas*/
+
+/* Star Modulo Administrativo */
+/*xdiseñador_ax*/
+.xdiseña{
+  content: url(Iconos/xdiseña.png) !important;}
+
+/*xplantilla_ax*/
+.xplanti{
+  content: url(Iconos/xplanti.png) !important;}
+
+/* End Modulo Administrativo */
+
+/* Star Modulo Historias Clinicas */
+.vcitapen {
+    content: url(Iconos/vcitapen.png) !important;}
+    
+/* End Modulo Historias Clinicas */
+
+/*End Iconos Formas*/
+
+
+.estadis{
+	content: url(Iconos/estadis.png) !important;}
+.presucon{
+	content: url(Iconos/presucon.png) !important;}
+.hombre{
+	content: url(Iconos/hombre.png) !important;}
+.mujer{
+	content: url(Iconos/mujer.png) !important;}
+.nino{
+    content: url(Iconos/contento.png) !important;}
+.nina{
+    content: url(Iconos/nina.png) !important;}
+.bebe{
+    content: url(Iconos/bebe.png) !important;}
+.vveonpun{
+    content: url(Iconos/vveonpun.png) !important;}
+.histpeq{
+    content: url(Iconos/histpeq.png) !important;}
+.hce{
+    content: url(Iconos/histpeq.png) !important;}
+.a-CardView-button.botones.a-CardView-button--hot {
+    padding: 0%;}
+.vglucome{
+    content: url(Iconos/vglucome.svg) !important;}
+.cerrarh{
+    content: url(Iconos/cerrarh.svg) !important;}
+.arespon{
+    content: url(Iconos/arespon.png) !important;}
+.msalas{
+    content: url(Iconos/msalas.svg) !important;}
+.vitales{
+    content: url(Iconos/vitales.svg) !important;}
+.aplicado{
+    content: url(Iconos/aplicado.png);}
+.suspendido{
+    content: url(Iconos/suspendido.png);}
+.noaplicar{
+    content: url(Iconos/noaplicar.png);}
+.noaplicado{
+    content: url(Iconos/noaplicado.png);}
+.desmarcar{
+    content: url(Iconos/desmarcar.png);}
+.pendiente{
+    content: url(Iconos/pendiente.png);}
+.icono11{
+    content: url(Iconos/aplicado.png) !important;}
+.icono12{
+    content: url(Iconos/suspendido.png) !important;}
+.icono13{
+    content: url(Iconos/noaplicado.png) !important;}
+.icono14{
+    content: url(Iconos/pendiente.png) !important;}
+.icono21{
+    content: url(Iconos/desmarcar.png) !important;}
+.icono22{
+    display: none;}
+.icono23{
+    content: url(Iconos/desmarcar.png) !important;}
+.icono24{
+    content: url(Iconos/noaplicar.png) !important;}
+.usuario{
+	content: url(Iconos/icon_usuario.png) !important;}	
+.clave{
+	content: url(Iconos/icon_clave.png) !important;}
+.cupo{
+	 content: url(Iconos/cupo.png) !important;} 
+.wconsult{
+	content: url(Iconos/wconsult.png) !important;}
+.actdata{
+	content: url(Iconos/actdata.png) !important;}
+.pagcalen{
+	content: url(Iconos/pagcalen.png) !important;}  
+.credit{
+	content: url(Iconos/credit.png) !important;}    
+.solicdoc{
+	content: url(Iconos/solicdoc.png) !important;}
+.nomina{
+	content: url(Iconos/nomina.png) !important;}
+.conniiif{
+	content: url(Iconos/conniiif.png) !important;}
+.cupo{
+	 content: url(Iconos/cupo.png) !important;} 
+.wconsult{
+	content: url(Iconos/wconsult.png) !important;}
+.actdata{
+	content: url(Iconos/actdata.png) !important;}
+.pagcalen{
+	content: url(Iconos/pagcalen.png) !important;}  
+.credit{
+	content: url(Iconos/credit.png) !important;}    
+.solicdoc{
+	content: url(Iconos/solicdoc.png) !important;}
+.gerencia{
+	content: url(Iconos/gerencia.png) !important;}  
+.guardar{
+	content: url(Iconos/guardar.png) !important;}  
+.buscar{
+	content: url(Iconos/buscar.png) !important;}  
+.cerrar{
+	content: url(Iconos/cerrar.png) !important;}  
+.duplicate{
+	content: url(Iconos/duplicate.png) !important;}  
+.eliminar{
+	content: url(Iconos/eliminar.png) !important;}  
+.nuevo{
+	content: url(Iconos/nuevo.png) !important;} 
+.mobserva{
+    content: url(Iconos/mobserva.png) !important;}
+.mantece{
+    content: url(Iconos/mantece.png) !important;}
+.qplanaud{
+    content: url(Iconos/qplanaud.png) !important;}
+.compras{
+    content: url(Iconos/compras.png) !important;}
+.vhistori{
+    content: url(Iconos/vhistori.png) !important;}
+.mtipdiag{
+    content: url(Iconos/mtipdiag.png) !important;}
+.paprdoc{
+    content: url(Iconos/paprdoc.png) !important;}
+.generar{
+    content: url(Iconos/generar.png) !important;}
+.aceptar{
+    content: url(Iconos/aceptar.png) !important;}
+.nencargo{
+    content: url(Iconos/nencargo.png) !important;}
+.mbotica{
+    content: url(Iconos/mbotica.png) !important;}
+.qparamet{
+    content: url(Iconos/qparamet.png) !important;}
+.xprotoco{
+    content: url(Iconos/xprotoco.png) !important;}
+.xreport{
+    content: url(Iconos/xreport.png) !important;}
+.xlimclav{
+    content: url(Iconos/xlimclav.png) !important;}
+.vatenind{
+    content: url(Iconos/vatenind.png) !important;}
+.icargar{
+    content: url(Iconos/icargar.png) !important;}
+.xtercero{
+    content: url(Iconos/xtercero.png) !important;}
+.vevoluci{
+    content: url(Iconos/vevoluci.png) !important;}
+.mrevisio{
+    content: url(Iconos/mrevisio.png) !important;}
+.update{
+    content: url(Iconos/update.png) !important;}
+.email{
+    content: url(Iconos/email.png) !important;}
+.dradica{
+    content: url(Iconos/dradica.png) !important;}
+.xhistori{
+    content: url(Iconos/xhistori.png) !important;}
+.esoporte{
+    content: url(Iconos/esoporte.png) !important;}
+.xlock{
+    content: url(Iconos/xlock.png) !important;}
+.vhisprog{
+    content: url(Iconos/vhisprog.png) !important;}
+.xmovimie{
+    content: url(Iconos/xmovimie.png) !important;}
+
+#desconectar:hover .desconectar{
+    content: url(Iconos2023/disconnect2_64x64.gif);
+}
+
+#desconectar .desconectar {
+    content: url(Iconos2023/disconnect_64x64.gif);
+    width: 45px !important;
+    height: 45px !important;
+}
+
+#desconectar:hover{
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Star Iconos de barra de navegacion */
+.primerRegistro{
+    content: url(Iconos2023/prev_64x64.gif);
+    width: 40px;
+}
+.primerRegistro:hover{
+    content: url(Iconos2023/prev2_64x64.gif);
+    width: 40px;
+}
+
+.anteriorRegistro{
+    content: url(Iconos2023/prevf_64x64.gif);
+    width: 40px;
+}
+.anteriorRegistro:hover{
+    content: url(Iconos2023/prevf2_64x64.gif);
+    width: 40px;
+    
+}
+
+.siguienteRegistro{
+    content: url(Iconos2023/ffrwrd_64x64.gif);
+    width: 40px;
+}
+.siguienteRegistro:hover{
+    content: url(Iconos2023/ffrwrd2_64x64.gif);
+    width: 40px;
+
+    
+}
+
+.ultimoRegistro{
+    content: url(Iconos2023/frwrd_64x64.gif);
+    width: 40px;
+}
+.ultimoRegistro:hover{
+    content: url(Iconos2023/frwrd2_64x64.gif);
+    width: 40px;
+
+    
+}
+
+.guardarRegistro{
+    content: url(Iconos2023/guardar_64x64.gif);
+    width: 40px;
+}
+.guardarRegistro:hover{
+    content: url(Iconos2023/guardar2_64x64.gif);
+    width: 40px;
+
+    
+}
+
+.limpiar{
+    content: url(Iconos2023/mas_64x64.gif);
+    width: 40px;
+}
+.limpiar:hover{
+    content: url(Iconos2023/mas2_64x64.gif);
+    width: 40px;
+
+    
+}
+
+.eliminarRegistro{
+    content: url(Iconos2023/basura_64x64.gif);
+    width: 40px;
+}
+.eliminarRegistro:hover{
+    content: url(Iconos2023/basura2_64x64.gif);
+    width: 40px;
+}
+
+.semaforo{
+    content: url(Iconos2023/trafic_64x64.gif);
+    width: 40px;
+}
+.semaforo:hover{
+    content: url(Iconos2023/trafic2_64x64.gif);
+    width: 40px;
+}
+
+.binoculares{
+    content: url(Iconos2023/busq_64x64.gif);
+    width: 40px;
+}   
+.binoculares:hover{
+    content: url(Iconos2023/busq2_64x64.gif);
+    width: 40px;
+}   
+
+.campoNombre{
+    content: url(Iconos2023/scomp_64x64.gif);
+    width: 40px;
+}
+.campoNombre:hover{
+    content: url(Iconos2023/scomp2_64x64.gif);
+    width: 40px;
+}
+
+/* End Iconos de barra de navegacion */

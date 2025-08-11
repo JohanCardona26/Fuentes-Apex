@@ -1,0 +1,350 @@
+.t-Button--headerUser, .t-NavigationBar-item.hide_download_app .t-Button-label, .hide_download_app {
+    color: white !important;
+    font-weight: 400;
+}
+
+.t-PageBody .t-Body{
+    /* background: url(fondoapex.png) no-repeat center bottom fixed !Important; */
+
+    background: url(fondoapex.png) no-repeat center center fixed !Important;
+   -webkit-background-size: cover !important;
+   -moz-background-size: cover !important;
+   -o-background-size: cover !important;
+   background-size: cover !important;
+   background-attachment: fixed !important;
+     
+  }
+  
+  .t-PageBody--login .t-Body {
+      background: url(fondoapex.png) !important;
+      background-repeat: no-repeat;
+      background-size: cover !important;
+      background-position: top;
+  }
+  
+  span.t-Login-logo {
+    background-image: url(logo_xenco_gree_little2.png) !important;
+    background-size: cover; 
+    width: 195px;
+    height:215px;
+    
+  }
+  
+  .t-Body-contentInner{
+    padding-top: 0.5%;
+  }
+
+
+.t-Login-footer {
+    width: 140px;
+    height: 42px;
+    /* margin: -2% -5%; */
+    position: fixed;
+    margin-left: 62%;
+    margin-top: -2%;
+}
+
+.t-copy-r{
+    margin-left: 8% !important;
+    color: white;
+    letter-spacing: 1px;
+    margin-bottom: 1%;
+    font-family: inherit;
+}
+
+span.t-Login-xenco {
+    background-image: url(SAFIX_EN_NEGATIVO-removebg-preview.png) !important ;
+    background-size: cover !important;
+    margin-left: 20%;
+    margin-top: -1%;
+    width: 55%;
+    height: 100%;
+    display: block !important;
+}
+
+
+
+.estadis{
+	content: url(Iconos/estadis.png) !important;}
+
+.presucon{
+	content: url(Iconos/presucon.png) !important;}
+.geshosp{
+	content: url(Iconos/geshosp.png) !important;}
+.tesoreri{
+	content: url(Iconos/tesoreri.png) !important;}
+.inventar{
+	content: url(Iconos/inventar.png) !important;}
+.nomina{
+	content: url(Iconos/nomina.png) !important;}
+
+.scontrat{
+	content: url(Iconos/scontrat.png) !important;}
+.conniiif{
+	content: url(Iconos/conniiif.png) !important;}
+.hombre{
+	content: url(Iconos/hombre.png) !important;}
+.mujer{
+	content: url(Iconos/mujer.png) !important;}
+.nino{
+    content: url(iconos/contento.png) !important;}
+.nina{
+    content: url(iconos/nina.png) !important;}
+.bebe{
+    content: url(iconos/bebe.png) !important;}
+.vveonpun{
+    content: url(iconos/vveonpun.png) !important;}
+.histpeq{
+    content: url(iconos/histpeq.png) !important;
+    }
+.hce{
+    content: url(iconos/histpeq.png) !important;
+}
+.a-CardView-button.botones.a-CardView-button--hot {
+    padding: 0%;
+}
+.vglucome{
+    content: url(iconos/vglucome.svg) !important;
+}
+
+.cerrarh{
+    content: url(iconos/cerrarh.svg) !important;
+}
+
+.arespon{
+    content: url(Iconos/arespon.png) !important;
+}
+.msalas{
+    content: url(Iconos/msalas.svg) !important;
+}
+.vitales{
+    content: url(Iconos/vitales.svg) !important;
+}
+.aplicado{
+    content: url(Iconos/aplicado.png);
+}
+
+.suspendido{
+    content: url(iconos/suspendido.png);
+}
+
+.noaplicar{
+    content: url(iconos/noaplicar.png);
+}
+
+.noaplicado{
+    content: url(iconos/noaplicado.png);
+}
+
+.desmarcar{
+    content: url(iconos/desmarcar.png);
+}
+
+.pendiente{
+    content: url(iconos/pendiente.png);
+}
+
+.icono11{
+    content: url(Iconos/aplicado.png) !important;
+}
+.icono12{
+    content: url(iconos/suspendido.png) !important;
+}
+.icono13{
+    content: url(iconos/noaplicado.png) !important;
+}
+.icono14{
+    content: url(iconos/pendiente.png) !important;
+}
+.icono21{
+    content: url(iconos/desmarcar.png) !important;
+}
+.icono22{
+    display: none;
+}
+.icono23{
+    content: url(iconos/desmarcar.png) !important;
+}
+.icono24{
+    content: url(iconos/noaplicar.png) !important;
+}
+
+.usuario{
+	content: url(iconos/icon_usuario.png) !important;
+    }
+	
+.clave{
+	content: url(iconos/icon_clave.png) !important;
+   }
+   /* //yamaha */
+.cupo{
+	 content: url(Iconos/cupo.png) !important;} 
+.wconsult{
+	content: url(Iconos/wconsult.png) !important;}
+.actdata{
+	content: url(Iconos/actdata.png) !important;}
+.pagcalen{
+	content: url(Iconos/pagcalen.png) !important;}  
+.credit{
+	content: url(Iconos/credit.png) !important;}    
+.solicdoc{
+	content: url(Iconos/solicdoc.png) !important;}
+.historia{
+	content: url(iconos/historia.ico) !important;}
+
+.fa-plus-circle{
+    color: #22747A  !important; }
+
+.estadis{
+	content: url(Iconos/estadis.png) !important;}
+.cartera{
+	content: url(Iconos/cartera.png) !important;}
+.presucon{
+	content: url(Iconos/presucon.png) !important;}
+.geshosp{
+	content: url(Iconos/geshosp.png) !important;}
+.tesoreri{
+	content: url(Iconos/tesoreri.png) !important;}
+.inventar{
+	content: url(Iconos/inventar.png) !important;}
+.nomina{
+	content: url(Iconos/nomina.png) !important;}
+.activosf{
+	content: url(Iconos/activosf.png) !important;}
+.scontrat{
+	content: url(Iconos/scontrat.png) !important;}
+.conniiif{
+	content: url(Iconos/conniiif.png) !important;}
+
+.cupo{
+	 content: url(Iconos/cupo.png) !important;} 
+.wconsult{
+	content: url(Iconos/wconsult.png) !important;}
+.actdata{
+	content: url(Iconos/actdata.png) !important;}
+.pagcalen{
+	content: url(Iconos/pagcalen.png) !important;}  
+.credit{
+	content: url(Iconos/credit.png) !important;}    
+.solicdoc{
+	content: url(Iconos/solicdoc.png) !important;}
+
+.cartcuo{
+	content: url(Iconos/cartcuo.png) !important;}  
+.niif{
+	content: url(Iconos/niif.png) !important;}  
+.estadis{
+	content: url(Iconos/estadis.png) !important;}  
+
+.gerencia{
+	content: url(Iconos/gerencia.png) !important;}  
+.guardar{
+	content: url(Iconos/guardar.png) !important;}  
+.buscar{
+	content: url(Iconos/buscar.png) !important;}  
+.cerrar{
+	content: url(Iconos/cerrar.png) !important;}  
+.duplicate{
+	content: url(Iconos/duplicate.png) !important;}  
+.eliminar{
+	content: url(Iconos/eliminar.png) !important;}  
+.nuevo{
+	content: url(Iconos/nuevo.png) !important;}  
+.apex{
+	content: url(Iconos/apex.png) !important;}  
+span.t-Icon.fa.fa-question{
+    color: rgba(159, 62, 94, 1) !important;
+    font-size: -webkit-xxx-large;
+}
+
+span.t-Icon.fa.fa-motorcycle.fa-2x.fa-lg{
+    color: rgba(159, 62, 94, 1) !important;
+}
+.mobserva{
+    content: url(Iconos/mobserva.png) !important;}  
+
+.mantece{
+    content: url(Iconos/mantece.png) !important;}
+.qplanaud{
+    content: url(Iconos/qplanaud.png) !important;}
+.compras{
+    content: url(Iconos/compras.png) !important;}
+.corporat{
+    content: url(Iconos/corporat.png) !important;}
+.vhistori{
+    content: url(Iconos/vhistori.png) !important;}
+.mtipdiag{
+    content: url(Iconos/mtipdiag.png) !important;}
+.paprdoc{
+    content: url(Iconos/paprdoc.png) !important;}
+.generar{
+    content: url(Iconos/generar.png) !important;}
+.aceptar{
+    content: url(Iconos/aceptar.png) !important;}
+.nencargo{
+    content: url(Iconos/nencargo.png) !important;}
+.mbotica{
+    content: url(Iconos/mbotica.png) !important;}
+.qparamet{
+    content: url(Iconos/qparamet.png) !important;}
+.xprotoco{
+    content: url(Iconos/xprotoco.png) !important;}
+.xreport{
+    content: url(Iconos/xreport.png) !important;}
+.xlimclav{
+    content: url(Iconos/xlimclav.png) !important;}
+.vatenind{
+    content: url(Iconos/vatenind.png) !important;}
+.icargar{
+    content: url(Iconos/icargar.png) !important;}
+.xtercero{
+    content: url(Iconos/xtercero.png) !important;}
+.vevoluci{
+    content: url(Iconos/vevoluci.png) !important;}
+.mrevisio{
+    content: url(Iconos/mrevisio.png) !important;}
+.update{
+    content: url(Iconos/update.png) !important;}
+.email{
+    content: url(Iconos/email.png) !important;}
+.dradica{
+    content: url(Iconos/dradica.png) !important;}
+.xhistori{
+    content: url(Iconos/xhistori.png) !important;}
+.esoporte{
+    content: url(Iconos/esoporte.png) !important;}
+.xlock{
+    content: url(Iconos/xlock.png) !important;}
+.vhisprog{
+    content: url(Iconos/vhisprog.png) !important;}
+.xmovimie{
+    content: url(Iconos/xmovimie.png) !important;}
+.kpifactu{
+    content: url(Iconos/kpifacturacion.png) !important;}
+.kpiprod{
+    content: url(Iconos/kpiproduccion.png) !important;}
+.kpiuci{
+    content: url(Iconos/kpiuci.png) !important;}
+.kpiciru{
+    content: url(Iconos/kpiciru.png) !important;}
+.kpiconin{
+    content: url(Iconos/kpiconin.png) !important;}
+.kpiinter{
+    content: url(Iconos/kpiinter.png) !important;}
+.kpisesp{
+    content: url(Iconos/kpisesp.png) !important;}
+.kpibasc{
+    content: url(Iconos/kpibasc.png) !important;}
+.kpicam{
+    content: url(Iconos/kpicam.png) !important;}
+.kpiocu{
+    content: url(Iconos/kpiocu.png) !important;}
+.kpiglos{
+    content: url(Iconos/kpiglos.png) !important;}
+
+.kpirad{
+    content: url(Iconos/kpirad.png) !important;}
+
+.kpihospi{
+    content: url(Iconos/kpihospi.png) !important;}
+

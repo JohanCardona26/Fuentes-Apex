@@ -1,0 +1,334 @@
+/*
+    NOV 01 2023. SEBASTIAN CARDONA. TEMPLATE CSS PARA LOGIN DE INGRESO 2023
+*/
+.t-login-desconectar{
+    width: 100px;
+}
+
+span#P998_DSP_CONEXION_DISPLAY {
+    background-color: #efefef !important;
+    color: #6a6a6a !important;
+    padding: 5px !important;
+    text-align: center !important;
+    font-weight: 400 !important;
+    font-family: system-ui !important;
+    border-radius: 10px !important;
+    border-color: #ffffff !important;
+    box-shadow: 0px 0px 8px 1px rgb(142 142 142 / 85%) inset !important;
+}
+
+.apex-item-textarea:focus, .apex-item-text:focus {
+    background-color: white !important;
+    border-color: rgb(21 166 149) !important;
+}
+
+.apex-item-textarea:hover, .apex-item-text:hover, .apex-item-select:hover {
+    background-color: white !important;
+}
+
+.t-login-superior {
+    display: flex !important;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100% !important;
+    align-items: center;
+}
+
+.t-login-superior-izquierdo {
+    width: 45% !important;
+    margin: -1% 0% 0% -3% !important;
+}
+.t-login-superior-derecho {
+    width: 45% !important;
+    margin: 0% 0% 0% 10% !important;
+}
+
+
+.t-Login-region {
+    padding: 3% 3% !important;
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+    margin: 0 auto !important;
+    border-radius: 4% !important;
+    background: rgb(255, 255, 255) !important;
+    box-shadow: 4px 4px 17px 9px rgb(0 0 0 / 20%) !important;
+    max-width: none !important;
+}
+
+span.t-login-xxenco {
+    -o-background-size: cover !important;
+    width: 500px !important;
+    height: 550px !important;
+    background-size: cover !important;
+    display: block !important;
+}
+
+.t-Login-container {
+    width: 50% !important;
+    height: 100% !important;
+}
+
+.t-login-items {
+    display: inline-flex !important;
+    float: inline-end !important;
+}
+
+.t-Login-region .t-Login-body .apex-item-text {
+    border-radius: 16px !important;
+    margin-left: 5% !important;
+    height: 28px !important;
+}
+
+.t-Form-label {
+    font-size: 17px !important;
+    font-weight: 500 !important;
+    font-family: inherit !important;
+    color: #22747a !important;
+}
+
+.col>.t-Form-fieldContainer {
+    margin-right: -0.0rem !important;
+    margin-left: -0.0rem !important;
+}
+
+label#P998_PERIODO_MES_LABEL {
+    width: 100% !important;
+    margin-left: -23% !important;
+}
+label#P998_CCOSTOS_LABEL {
+    width: 100% !important;
+    margin-left: -23% !important;
+}
+
+.btnOlvidoClave {
+    margin: -4% 0% 0% 22% !important;
+    color: dimgray !important;
+    font-family: sans-serif !important;
+}
+
+.t-login-sup-der-buttons {
+    text-align: center;
+    margin-left: 15%;
+}
+
+.t-login-botones {
+    color: black !important;
+    background-color: #f6d500 !important;
+    width: 55% !important;
+    font-weight: 600;
+}
+/*
+    NOV 11 2023. SEBASTIAN CARDONA
+*/
+/*------------------------------- START CARTAS O MUDULOS DE SAFIX---------------------------*/
+.a-CardView-mainContent {
+    font-size: var(--a-cv-maincontent-font-size,16px) !important
+}
+
+.a-CardView-items--grid {
+    grid-template-columns: repeat(auto-fill,minmax(var(--a-cv-item-width,100px),1fr)) !important;
+}
+
+
+ .a-CardView-body{
+    background: #ffffff00 !important;
+    height: 20px !important;
+}
+
+.a-CardView-header {
+    width: 100px !important;
+    height: 85px !important;
+    text-align: center !important;
+    background-color: #ffffff !important;
+    border-radius: 0% !important;
+    margin: auto !important;
+    margin-top: 0px !important;
+    border-bottom-width: 0 !important;
+}
+
+.a-CardView-header:hover {
+    width: 100px !important;
+    height: 85px !important;
+    text-align: center !important;
+    border-radius: 0% !important;
+    margin: auto !important;
+    margin-top: 0px !important;
+    cursor: pointer !important;
+}
+
+.a-CardView  {
+    border-style: none !important;
+    top: 0px !important;
+    width: 0px !important;
+    height: 180px !important;
+    color: #000000 !important;
+    border-radius: 4px !important;
+    padding-top: 0% !important;
+    position: relative !important;
+    margin: 0% !important;
+    font-family: inherit !important;
+    transition: .4s !important;
+}
+
+/*------------------------------- END CARTAS O MUDULOS DE SAFIX  ---------------------------*/
+
+/*------------------------------- START RESPONSIVE ---------------------------------------- */
+
+/*----------------START RESPONSIVE ORDENADORES----------------------*/
+
+@media (max-width : 1858px) and (min-width : 1840px) {
+    .t-Login-container {
+        width: 50.5% !important;
+    }
+}
+@media (max-width : 1839px) and (min-width: 1770px ) {
+    .t-Login-container {
+        width: 52.5% !important;
+    }
+}
+
+@media(max-width: 1769px) and (min-width: 1689px ) {
+    .t-Login-container {
+        width: 55% !important;
+    }
+}
+
+@media (max-width : 1688px) and (min-width: 1616px ) {
+    .t-Login-container {
+        width: 57.5% !important;
+    }
+}
+
+@media(max-width: 1615px) and (min-width: 1548px ) {
+    .t-Login-container {
+        width: 60% !important;
+    }
+}
+
+@media(max-width: 1547px) and (min-width: 1487px ) {
+    .t-Login-container {
+        width: 62.5% !important;
+    }
+}
+
+@media(max-width: 1486px) and (min-width: 1429px ) {
+    .t-Login-container {
+        width: 65% !important;
+    }
+}
+
+@media(max-width: 1428px) and (min-width: 1376px ) {
+    .t-Login-container {
+        width: 67.5% !important;
+    }
+}
+
+@media(max-width: 1377px) and (min-width: 1327px ) {
+    .t-Login-container {
+        width: 70% !important;
+    }
+}
+
+@media(max-width: 1326px) and (min-width: 1283px ) {
+    .t-Login-container {
+        width: 72.5% !important;
+    }
+}
+
+@media(max-width: 1282px) and (min-width: 1239px ) {
+    .t-Login-container {
+        width: 75% !important;
+    }
+}
+@media(max-width: 1238px) and (min-width: 1199px ) {
+    .t-Login-container {
+        width: 77.5% !important;
+    }
+}
+@media(max-width: 1198px) and (min-width: 1161px ) {
+    .t-Login-container {
+        width: 80% !important;
+    }
+}
+@media(max-width: 1162px) and (min-width: 1126px ) {
+    .t-Login-container {
+        width: 82.5% !important;
+    }
+}
+@media(max-width: 1125px) and (min-width: 1093px ) {
+    .t-Login-container {
+        width: 85% !important;
+    }
+}
+@media(max-width: 1092px) and (min-width: 1025px ) {
+    .t-Login-container {
+        width: 92.5% !important;
+    }
+}
+/*----------------END RESPONSIVE ORDENADORES----------------------*/
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .t-Login-container {
+        width: 95% !important;
+        height: 100% !important;
+    }
+}
+
+/* Estilos para dispositivos más pequeños (por ejemplo, teléfonos móviles) */
+@media only screen and (max-width: 768px) {
+    .t-Login-container {
+        width: 100% !important;
+        height: 100% !important;
+    }
+}
+/*----------------END RESPONSIVE OTROS DISPOSITIVOS----------------------*/
+/*------------------------------- END RESPONSIVE ---------------------------------------- */
+
+
+.a-TMV-w-scroll {
+    width: 100% !important;
+    overflow-x: auto !important;
+    height: 100% !important;
+}
+
+ul.a-CardView-items.a-CardView-items--grid.t-login-modulos {
+    list-style: none !important;
+    padding: 0px !important;
+    margin: 0px !important;
+    display: flex !important;
+}
+
+li.a-CardView-item {
+    flex: 0 0 14% !important;
+    padding: 0px !important;
+}
+
+.a-CardView-items {
+    display: grid !important;
+    grid-gap: var(--a-cv-grid-gap,0px) !important;
+    grid-template-columns: 1fr !important;
+    -webkit-padding-after: var(--a-cv-grid-gap,16px) !important;
+    padding-block-end: var(--a-cv-grid-gap,16px) !important;
+}
+ 
+/*Abr 15 2024. Johan Cardona. Ajustes del login por nuevo theme*/
+.t-Form-inputContainer.col.col-10 {
+    width: 80% !important;
+}
+
+.t-Form-labelContainer.col.col-2{
+    width: 20% !important;
+}
+
+input#P998_CLAVE {
+    width: 359px !important;
+}
+
+input#P998_CCOSTOS {
+    padding: 5px !important;
+    font-size: 14px !important;
+    width: 345px !important;
+}

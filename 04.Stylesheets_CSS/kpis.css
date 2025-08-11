@@ -1,0 +1,179 @@
+/*Cartas de  kpis*/
+
+ 
+
+/* .a-CardView {
+    width: 100% !important;
+    height: 100% !important;
+    background: white;
+    border-radius: 30px !important;
+    box-shadow: 1px 4px 6px #bebebe !important;
+
+    transition: 0.2s ease-in-out !important;
+}
+
+ 
+
+ 
+
+.a-CardView-header {
+    color: white !important;
+    width: 100% !important;
+    height: 40% !important;
+    border-top-left-radius: 30px !important;
+    border-top-right-radius: 30px !important;
+    display: flex !important;
+    justify-content: center !important;
+} */
+
+ 
+
+.a-GV-table th.a-GV-header, .a-GV-table th.a-GV-headerGroup {
+    /* font-weight: var(--a-gv-header-cell-font-weight,var(--a-base-font-weight-bold,700)); */
+    background-color: rgb(238 240 240) !important;
+    color: rgb(36 136 135) !important;
+}
+
+ 
+
+
+.Asistidas .a-CardView-header  { 
+        background: #429e45 !important; 
+        height: 100%;
+}
+
+ 
+
+
+.citascanceladas .a-CardView-header {
+    /* background: linear-gradient(#70d925, #4f4f4f) !important; */
+    background: #c71f37 !important;
+    height: 100%;
+}
+
+ 
+
+
+.Canceladas .a-CardView-header  { 
+    /* background: linear-gradient(#70d925, #4f4f4f) !important; */
+        background: #c71f37 !important; 
+        /* background: #ffadad !important; 
+        color: black !important; */
+        height: 100%;
+}
+
+ 
+
+
+.a-CardView-items--grid {
+    grid-template-columns: none;
+}
+
+ 
+
+/*botones de la carta*/
+
+ 
+
+a.a-CardView-button.Btn_Facturado.a-CardView-button--hot {
+    border-radius: 14px;
+    position: relative;
+    display: flex;
+    /* margin: 7px; */
+    padding: 3px 30px;
+    height: 43px;
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: -1px;
+    text-decoration: none;
+    color: #429e45  !important;
+    background: transparent;
+    cursor: pointer;
+    transition: ease-out 0.5s;
+    border: 2px solid #429e45 ;
+}
+
+ 
+
+
+a.a-CardView-button.Btn_Facturado.a-CardView-button--hot:hover {
+    color: white !important;
+    box-shadow: inset 0 -100px 0 0 #429e45 ;
+}
+
+ 
+
+ 
+
+a.a-CardView-button.Btn_Facturado.a-CardView-button--hot:active {
+    transform: scale(0.9);
+}
+
+ 
+
+ 
+
+ 
+
+.a-CardView-items--grid {
+    grid-template-columns: none;
+}
+
+ 
+
+ 
+
+ 
+
+a.a-CardView-button.Btn_PenFacturar.a-CardView-button--hot {
+    border-radius: 14px;
+    position: relative;
+    display: flex;
+    /* margin: 7px; */
+    padding: 3px 30px;
+    height: 43px;
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: -1px;
+    text-decoration: none;
+    color: #c71f37  !important;
+    background: transparent;
+    cursor: pointer;
+    transition: ease-out 0.5s;
+    border: 2px solid #c71f37 ;
+}
+
+ 
+
+
+a.a-CardView-button.Btn_PenFacturar.a-CardView-button--hot:hover {
+    color: white !important;
+    box-shadow: inset 0 -100px 0 0 #c71f37 ;
+}
+
+ 
+
+ 
+
+a.a-CardView-button.Btn_PenFacturar.a-CardView-button--hot:active {
+    transform: scale(0.9);
+}
+
+ 
+
+ 
+
+/*Regiones*/
+
+ 
+
+.RegionKpis .t-Region-header {
+    background-color: #f0fbf9 !important;
+}
+
+ 
+
+
+.RegionKpis .t-Region-title  {
+   color: #519397;
+}

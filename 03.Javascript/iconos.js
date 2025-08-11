@@ -1,0 +1,1 @@
+let menu = $('.fa').attr('class')

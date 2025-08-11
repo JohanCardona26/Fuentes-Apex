@@ -1,0 +1,73 @@
+
+/*Johan Cardona.NOV 17 2023*/
+.t-Body-contentInner{
+    padding-top: 0.5%;
+}
+
+.t-Login-footer {
+    width: 140px;
+    height: 42px;
+    position: fixed;
+    margin-left: 62%;
+    margin-top: -2%;
+}
+
+
+.t-copy-r{
+    margin-left: 8% !important;
+    color: white;
+    letter-spacing: 1px;
+    margin-bottom: 1%;
+    font-family: inherit;
+}
+
+.t-Button--headerUser, .t-NavigationBar-item.hide_download_app .t-Button-label, .hide_download_app {
+    color: white !important;
+    font-weight: 400;
+}
+
+.icon_aparence {
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
+    overflow: hidden;
+    text-align: center;
+    line-height: 64px;
+  }
+  
+.icon_aparence::before,
+.icon_aparence::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.5s ease-in-out;
+}
+  
+.icon_aparence:hover::before {
+  opacity: 0; 
+}
+
+.icon_aparence:hover::after {
+  opacity: 1; 
+}
+  
+.fa-plus-circle{
+  color: #22747A  !important;
+}
+
+span.t-Icon.fa.fa-question{
+  color: rgba(159, 62, 94, 1) !important;
+  font-size: -webkit-xxx-large;
+}
+
+span.t-Icon.fa.fa-motorcycle.fa-2x.fa-lg{
+  color: rgba(159, 62, 94, 1) !important;
+}
+
+.a-CardView-button.botones.a-CardView-button--hot {
+  padding: 0%;
+}

@@ -1,0 +1,15 @@
+{
+	"name": "Historias - Safix",
+	"short_name": "Safix",
+	"description": "Manejo de historias clinicas desde Safix-Mobile",
+	"start_url": "/f?p=&APP_ID.:HOME:&SESSION.::::::",
+	"display": "standalone",
+	"orientation": "portrait-primary",
+	"theme_color": "#239e89",
+	"background_color": "#fff",
+	"lang": "es-CO",
+	"scope": "/apex/",
+	"dir": "ltr",
+	"gcm_sender_id": "103953800507",
+	"prefer_related_applications": false
+}

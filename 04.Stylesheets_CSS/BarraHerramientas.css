@@ -1,0 +1,135 @@
+#lista-botones{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navegacion-safix {
+    padding: 0 !important;
+    position: fixed;
+    width: 100%; 
+    z-index: 465;
+    background-color: #D3D3D3;
+}
+
+#navsafix-main{
+    display: flex;
+    width: 100%;
+    
+}
+
+.navegacion-safix ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 !important;
+    margin: 0 !important;
+    transition: height 0.3s ease;
+
+}
+
+#btn-conectar{
+    padding: 0em 3em;
+    background-color: #f9d300;
+    font-weight: bold;
+    border-radius: 20px; 
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    line-height: 40px; 
+}
+
+.seccion-navegacion{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#contadorRegistroBarra{
+    text-align: center;
+    background-color: #f0f0f0; /* Light gray background */
+    border: 1px solid #ccc;    /* Gray border */
+    color: #555;               /* Dark gray text color */
+    cursor: not-allowed;       /* Display a "not-allowed" cursor */
+}
+
+#navegacion-registros {
+    width: 40%;
+}
+
+#navegacion-botones {
+    padding: .3em;
+}
+.nav-icon #btn-conectar{
+    margin: 0 3em;
+}
+
+.nav-button {
+    width: 30px;
+    height: auto;
+    margin: 5px;
+}
+
+.nb {
+    padding: 0 .1em;
+}
+
+.nav-icon {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+ 
+}
+
+.nav-icon:hover{
+    cursor: pointer;
+}
+
+.nav-icon .icono {
+    display: inline;
+    height: auto;
+    transition: opacity 0.1s;
+    position: relative;
+}
+
+.nav-icon .iconoActivo {
+    opacity: 0;
+    position: absolute;
+}
+
+.nav-icon:hover .icono {
+    opacity: 0;
+} 
+
+.nav-icon:hover .iconoActivo {
+    opacity: 1;
+}
+
+.nav-button {
+    transition: box-shadow 0.1s;
+    border-radius: 50%;
+}
+
+.nav-button:hover {
+    cursor: pointer;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.inputBarraNavegacion{
+    border: none;
+    margin: 0 .4em;
+    padding: .5em 1em;
+    width: 5em;
+    border-radius: 15px;
+    box-shadow: inset 0 0 3px 2px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+}
+
+.inputBarraNavegacion:focus {
+    outline: none;
+    border: none;
+}
+
+#inputBusquedaForma{
+    width: 15em;
+}

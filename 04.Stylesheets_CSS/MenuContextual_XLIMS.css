@@ -1,0 +1,56 @@
+
+/*
+* START CONTEXT MENU STYLE
+*/
+
+#primary-context-menu {
+    position: fixed;
+    z-index: 10000;
+    width: 25rem;
+    background: #ffffff;
+    border-radius: 5px;
+    transform: scale(0);
+    transform-origin: top left;
+    border: 0.7px solid rgb(170, 186, 193)
+}
+
+#primary-context-menu.visible {
+    transform: scale(1);
+    transition: transform 200ms ease-in-out;
+}
+
+#primary-context-menu .item {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+    /* color: #17999B; */
+    cursor: pointer;
+    border-radius: inherit;
+}
+
+#primary-context-menu .item:hover {
+    background: hsl(180, 10%, 84%);
+}
+
+.context-menu-icon{
+    margin-right: 0.5rem;
+}
+
+.context-menu-option{
+    color: #17999B;
+    float: left;
+    width: 58%;
+}
+
+.key-short-guide{
+    color: #6f8f8f;
+    float: left;
+}
+
+.context-menu-separator{
+    border-radius: 0;
+    border-top: 0.8px solid rgb(170, 186, 193)
+}
+
+/*
+* END CONTEXT MENU STYLE
+*/

@@ -1,0 +1,212 @@
+.a-GV-table th.a-GV-header, .a-GV-table th.a-GV-headerGroup {
+    font-weight: var(--a-gv-header-cell-font-weight,var(--a-base-font-weight-bold,700));
+    background-color: rgb(245 245 245);
+    color: rgb(13 121 183);
+}
+
+.a-IG-header {
+
+    background-color: #ffffff;
+}
+
+
+.a-GV-stateIcons:empty {
+    display: none;
+    color: white;
+}
+
+
+.a-GV-footer {
+     color: rgb(13 121 183);
+    background-color: rgb(245 245 245);
+}
+
+.t-Button.t-Button--headerRight {
+    background-color: rgb(255 255 255 / 99%);
+    border: 1px solid rgb(3 115 144);
+}
+
+.t-Button.t-Button--headerRight:active, .t-Button.t-Button--headerRight.is-active {
+    background-color: white;}
+
+.t-Body-actionsContent {
+    background-color: rgb(255, 255, 255);
+}
+
+.t-Region-header {
+    background-color: rgb(13 121 183) !important;
+    /*background: linear-gradient(to right, rgb(0 107 140),rgb(35, 194, 205) ) !important;*/
+    font-size: 20px;
+    color: #ffffff;
+    box-shadow: 0px 2px 2px 3px rgb(0 0 0 / 10%);
+    /* background: radial-gradient(#25d9c2, #006b8c); */
+}
+
+.t-Body-side{
+    background-color:#ffffff2e;
+}
+
+.t-Region-header #titlecenter {
+    text-align: center;
+}
+
+
+.a-IRR-toolbar {
+    background-color: #f3f3f3;
+}
+
+
+.t-Button--simple.t-Button--hot {
+    color: white;
+    background: linear-gradient(to right, rgb(0 107 140),rgb(35, 194, 205) ) !important;
+}
+
+#P178_ESTADO_OCU, #P178_CENTRO_COSTO, #P178_FECHAINI|input, #P178_FECHAFIN {
+
+    background-color: rgba(56, 155, 180, 0.164);
+}
+
+.apex-item-multi {
+        background-color: rgba(56, 155, 180, 0.164);
+}
+
+.t-Form--xlarge .t-Form-inputContainer .a-Button {
+    padding: 1.2rem;
+    background-color: rgba(56, 155, 180, 0.164);
+}
+
+#SR_menup_tab{
+ background-color: rgba(56, 155, 180, 0.164);
+
+}
+.t-Tabs--pill {
+    background-color: #00000052;
+    border-radius: 2px;
+}
+
+.t-Tabs--pill .t-Tabs-item.is-active .t-Tabs-link {
+    /* background: linear-gradient(to right, rgb(0 107 140),rgb(35, 194, 205) ) !important; */
+    background-color : rgb(13 121 183) !important;
+     /* background-color:  rgb(99 171 187); */
+     /* rgba(56, 155, 180, 0.164); */
+    color: white !important;
+}
+
+.a-IRR-sortWidget {
+    background-color: #02708fcb !important;
+}
+
+.a-IRR-header {
+    background-color: rgb(245 245 245) !important;
+     /* rgb(4 120 146 / 62%) !important; */
+    color: white !important;
+    border-top: 1px solid #d2d2d2 !important;
+    box-shadow: inset 1px 0 0 0 #e6e6e6;
+}
+
+.a-IRR-headerLink {
+    text-decoration: none;
+    color: rgb(7 128 150) !important;
+    padding-top: 11px !important;
+}
+
+
+.a-IRR .a-IRR-pagination-label {
+    color: #fafafa;
+}
+
+.a-IRR-paginationWrap--bottom {
+    background-color: rgb(245 245 245);
+     /* rgb(4 120 146 / 62%); */
+}
+
+.apex-rds a span {
+    display: block;
+    padding: 12px 0;
+    color: white;
+}
+
+
+.a-CardView-header {
+    /* background: linear-gradient(to right, rgb(0 107 140),rgb(35, 194, 205) ) !important; */
+    background-color: #437c94 !important;
+    color: white !important;
+}
+
+.a-CardView {
+border-radius: 3% !important;
+box-shadow: 2px 2px 2px 2px rgb(0 0 0 / 10%);
+}
+
+
+.t-Tabs--pill .t-Tabs-link:hover {
+    background-color: rgb(13 121 183 / 34%) !important;
+    color: white !important;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+
+      background: linear-gradient(to right, rgb(0 107 140),rgb(35, 194, 205) ) !important;
+}
+
+.t-Header-branding {
+    /* ----background-color: rgb(49 55 60 / 19%); */
+    background-color: rgb(13 121 183);
+}
+
+
+.a-IG-controls-cell a-IG-controls-cell--label{
+    display: block;
+    padding: 12px 0;
+    color: rgb(21 20 20) !important;
+}
+
+.a-IG-controls-item--controlBreak, .a-IG-reportSummary-item--controlBreak, .a-IRR-controls-item--controlBreak, .a-IRR-reportSummary-item--controlBreak {
+    --a-report-controls-cell-label-icon-background-color: rgb(13 121 183);
+    --a-report-controls-cell-label-hover-background-color: rgb(207, 207, 207);
+    /* background-color: rgb(128 128 128); */
+}
+
+
+
+#control_text4338295673236162735, #control_text4338295529787162734{
+
+    color: black !important;
+}
+
+
+/* radiogroups */
+
+
+.checkbox_group input:checked + label:before, .radio_group input:checked + label:before {
+    border-color: #000000;
+    background-color: #0d79b7;
+}
+
+.checkbox_group input:checked + label:after, .radio_group input:checked + label:after {
+    border-color: #000000;
+    background-color: #0d79b7;
+}
+
+.radio_group input + label:after {
+    background-color: rgb(255 255 255) !important;
+}
+
+
+/* esconder los dos campos de fecha */
+.esconder,.esconderfechai
+{
+    display: none !important;
+}
+
+
+
+.a-Button a-Toolbar-item js-actionButton .a-Button--hot {
+        background: rgb(7 128 150);
+}
+
+/* calendario */
+.oj-datepicker-calendar td a.oj-selected, .oj-datepicker-calendar td.oj-datepicker-today a.oj-selected {
+    color: white !important;
+    background: rgb(13 121 183);
+}
