@@ -25,7 +25,8 @@ callbacks.ejecutar = (callback, ...parametrosCallback) => {
         //ejecucion del callback
         apex.server.process(callback,
         {
-            x01: safix.procesos.ArmarParametrosX01() //items de toda la pagina
+            pageItems : procesos.ArmarParametrosPageItems().join(',')
+           ,x01: safix.procesos.ArmarParametrosX01() //items de toda la pagina
            ,x02: safix.procesos.ArmarParametrosX02() // columnas de todos los grids de la pagina
            ,x03: safix.procesos.ArmarParametrosX03() // Items de toda la pagina como objecto, id -> value
            ,x04: parametrosCallback[0]

@@ -879,14 +879,25 @@ procesos.generarHashSHA256 = async (cadena) => {
 procesos.ArmarParametrosPageItems = () => {
     let pageItemIds = [];
 
-    // Selecciona todos los elementos que comienzan con "P" + número de página
-    $('input[id^="P' + paginaActual + '"], select[id^="P' + paginaActual + '"], textarea[id^="P' + paginaActual + '"], .radio_group[id^="P' + paginaActual + '"]')
-        .each((i, it) => {
-            const idLimpio = it.id.replaceAll('|input', '');
-            if (!pageItemIds.includes(`#${idLimpio}`)) {
-                pageItemIds.push(`#${idLimpio}`);
-            }
-        });
-
+    // // Selecciona todos los elementos que comienzan con "P" + número de página
+    // $('input[id^="P' + paginaActual + '"], select[id^="P' + paginaActual + '"], textarea[id^="P' + paginaActual + '"], .radio_group[id^="P' + paginaActual + '"]')
+    //     .each((i, it) => {
+    //         const idLimpio = it.id.replaceAll('|input', '');
+    //         if (!pageItemIds.includes(`#${idLimpio}`)) {
+    //             pageItemIds.push(`#${idLimpio}`);
+    //         }
+    //     });
+    $('input[id^="P' + paginaActual + '"], select[id^="P' + paginaActual + '"], textarea[id^="P' + paginaActual + '"]')
+    .each((i, it) => {
+        // Limpiar el ID removiendo sufijos comunes
+        let idLimpio = it.id.replaceAll('|input', '')
+                            .replaceAll('_HIDDENVALUE', '')
+                            .replaceAll('_DISPLAY', '');
+        
+        // Verificar que el item existe en APEX antes de agregarlo
+        if (apex.item(idLimpio).node && !pageItemIds.includes(`#${idLimpio}`)) {
+            pageItemIds.push(`#${idLimpio}`);
+        }
+    });
     return pageItemIds;
 };
