@@ -2,7 +2,7 @@
  * @Namespace administrativo
  * @description Modulo de safix
  */
-
+  
 const administrativo = {};
 
 safix.administrativo = administrativo;
