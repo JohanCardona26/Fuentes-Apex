@@ -901,3 +901,26 @@ procesos.ArmarParametrosPageItems = () => {
     });
     return pageItemIds;
 };
+
+/**
+ * @module procesos.habilitarEditIG
+ * @create Sep 03 2025. Juan Esteban Londoño. 
+ * @description {Función que habilita el modo de edición de los interactive grid recibiendo el static ID de la región}
+ */
+procesos.habilitarEditIG = (gridId) => {
+    try {
+        var igRegion = apex.region(gridId);
+
+        if (!igRegion) {
+            console.error("No se encontró el IG con id:", gridId);
+            return;
+        }
+
+        var igActions = igRegion.call("getActions");
+        igActions.set("edit", true);
+
+        //console.log("Modo edición habilitado en el IG:", gridId);
+    } catch (e) {
+        console.error("Error habilitando edición en IG:", e);
+    }
+}
