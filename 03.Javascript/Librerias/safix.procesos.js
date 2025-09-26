@@ -92,7 +92,7 @@ procesos.ArmarParametrosX01 = () => {
     procesos.mensajesConsola.log('Recoleccion de informcion',);
 
     $('input[id^="P' + paginaActual + '"]').each((i, it) => {
-        datos[it.id.replaceAll('|input', ``)] = $v(it);
+        datos[it.id.replaceAll('|input', ``).replaceAll('_input', '')] = $v(it);
     });
 
     $('select[id^="P' + paginaActual + '"]').each((i, it) => {
