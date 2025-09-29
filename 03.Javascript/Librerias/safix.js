@@ -10,70 +10,61 @@
  * @version 1.0.4 Mejora de la gestion de eventos del service worker.
  **/
 
-const safix = {}; // new namespace trabajar todo sobre este
+// const safix = {};
 
-const apx_xenco = safix; // compatibilidad con version antigua
+const safix = {
+    // Ultimo item enfocado
+    ultimoItemFocus : null,
+    // Validar datos nulos
+    nvl : (valorPrincipal, valorReemplaza) => {
+        return valorPrincipal || valorReemplaza;
+    },
+    // Función para detectar si se accede desde un dispositivo móvil
+    esDispositivoMovil : () => {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    },
+    // Codigos HEX de colores de la aplicacion
+    colores: {
+        VA_ROJO     : "#c1121f",
+        VA_NARANAJA : "#ff7300",
+        VA_AZUL     : "#0509fa",
+        VA_VERDE    : "#0f848c",
+        VA_AMARILLO : "#ffff00",
+        VA_BLANCO   : "#ffffff",
+        VA_GRIS     : "#b8b4b4",
+        VA_GRIS_OSCURO  : "#5a5a5a"
+    },
+    // Codigos HEX de colores pastel de la aplicacion
+    coloresPastel: {
+        VA_ROJO     : "#FADBD8",
+        VA_NARANAJA : "#ffe8d8",
+        VA_AZUL     : "#dde8f9",
+        VA_VERDE    : "#d2ebd2",
+        VA_AMARILLO : "#FCF3CF"
+    },
+    // Objecto para gestion de Index DB
+    IndexDB: {
+        dbName : "IndexDB - Safix",
+        storeName : "registros",
+        dbVersion : 1,
+        Usuarios : "Users", 
+        Terminal : "DatosTerminal"
+    },
+    VariablesPwa: {
+        url_service_worker  : "/sw_safix.js",
+        splitHref   : window.location.href.split(`/`)
+    }, 
+    idHojaEstilosInyectada: 'estilos-inyectados-js'
+};
 
+const apx_xenco = safix;
 const paginaActual = $v(`pFlowStepId`);
 const aplicacionActual  = $v(`pFlowId`);
 const appImages_1 = '#THEME_IMAGES#css/Vista#MIN#.css?v=#APEX_VERSION#';
-const appImages = '#APP_IMAGES#'
+const appImages = '#THEME_IMAGES#css/Vista#MIN#.css?v=#APEX_VERSION#';
 const verErroresConsola = true;
 var verLogsConsola = false;
 var verAvisosConsola = false;
-
-// Codigos HEX de colores de la aplicacion
-var colores = {
-    VA_ROJO     : "#c1121f",
-    VA_NARANAJA : "#ff7300",
-    VA_AZUL     : "#0509fa",
-    VA_VERDE    : "#0f848c",
-    VA_AMARILLO : "#ffff00",
-    VA_BLANCO   : "#ffffff",
-    VA_GRIS     : "#b8b4b4",
-    VA_GRIS_OSCURO  : "#5a5a5a"
-};
-safix.colores =  colores;
-
-// Codigos HEX de colores pastel de la aplicacion
-var coloresPastel = {
-    VA_ROJO     : "#FADBD8",
-    VA_NARANAJA : "#ffe8d8",
-    VA_AZUL     : "#dde8f9",
-    VA_VERDE    : "#d2ebd2",
-    VA_AMARILLO : "#FCF3CF"
-};
-
-safix.coloresPastel =  coloresPastel;
-
-// Ultimo item enfocado
-safix.ultimoItemFocus = null;
-
-// Validar datos nulos
-safix.nvl = (valorPrincipal, valorReemplaza) => {
-    return valorPrincipal || valorReemplaza;
-}
-
-// Función para detectar si se accede desde un dispositivo móvil
-safix.esDispositivoMovil = () => {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-}
-
-// Objecto para gestion de Index DB
-safix.IndexDB = {
-    dbName : "IndexDB - Safix",
-    storeName : "registros",
-    dbVersion : 1,
-    Usuarios : "Users", 
-    Terminal : "DatosTerminal"
-}
-
-safix.VariablesPwa = {
-    url_service_worker  : "/sw_safix.js",
-    splitHref   : window.location.href.split(`/`)
-};
-
-safix.idHojaEstilosInyectada = 'estilos-inyectados-js';
 
 // Codigo comentado ya que no se usa en la aplicacion
 // Columnas de multiregistros
