@@ -92,35 +92,35 @@ procesos.ArmarParametrosX01 = () => {
     procesos.mensajesConsola.log('Recoleccion de informcion',);
 
     $('input[id^="P' + paginaActual + '"]').each((i, it) => {
-        datos[it.id.replaceAll('|input', ``)] = $v(it);
+        datos[obtenerNombreRealItem(it.id)] = $v(it);
     });
 
     $('select[id^="P' + paginaActual + '"]').each((i, it) => {
-        datos[it.id] = $v(it);
+        datos[obtenerNombreRealItem(it.id)] = $v(it);
     });
 
     $('.radio_group[id^="P' + paginaActual + '"]').each((i, it) => {
-        datos[it.id] = $v(it);
+        datos[obtenerNombreRealItem(it.id)] = $v(it);
     });
 
     $('textarea[id^="P' + paginaActual + '"]').each((i, it) => {
-        datos[it.id] = $v(it);
+        datos[obtenerNombreRealItem(it.id)] = $v(it);
     });
 
     $('input[id^="P' + "0" + '"]').each((i, it) => {
-        datos[it.id] = $v(it);
+        datos[obtenerNombreRealItem(it.id)] = $v(it);
     });
 
     $('select[id^="P' + "0" + '"]').each((i, it) => {
-        datos[it.id] = $v(it);
+        datos[obtenerNombreRealItem(it.id)] = $v(it);
     });
 
     $('.radio_group[id^="P' + "0" + '"]').each((i, it) => {
-        datos[it.id] = $v(it);
+        datos[obtenerNombreRealItem(it.id)] = $v(it);
     });
 
     $('textarea[id^="P' + "0" + '"]').each((i, it) => {
-        datos[it.id] = $v(it);
+        datos[obtenerNombreRealItem(it.id)] = $v(it);
     });
 
 
@@ -229,7 +229,7 @@ procesos.ArmarParametrosX03 = () => {
 
     $('input[id^="P' + paginaActual + '"]').each((i, it) => {
         let inputs = {
-            "id": it.id.replaceAll('|input', ``),
+            "id": obtenerNombreRealItem(it.id),
             "valor": it.value
         }
         datos.push(inputs);
@@ -237,7 +237,7 @@ procesos.ArmarParametrosX03 = () => {
 
     $('select[id^="P' + paginaActual + '"]').each((i, it) => {
         let selects = {
-            "id": it.id,
+            "id": obtenerNombreRealItem(it.id),
             "valor": it.value
         }
         datos.push(selects);
@@ -245,7 +245,7 @@ procesos.ArmarParametrosX03 = () => {
 
     $('.radio_group[id^="P' + paginaActual + '"]').each((i, it) => {
         let radio_group = {
-            "id": it.id,
+            "id": obtenerNombreRealItem(it.id),
             "valor": it.value
         }
         datos.push(radio_group);
@@ -253,7 +253,7 @@ procesos.ArmarParametrosX03 = () => {
 
     $('textarea[id^="P' + paginaActual + '"]').each((i, it) => {
         let textarea = {
-            "id": it.id,
+            "id": obtenerNombreRealItem(it.id),
             "valor": it.value
         }
         datos.push(textarea);
@@ -859,7 +859,7 @@ procesos.DesenmascararValores = (valorEnmascarado) => {
  * @module procesos.generarHashSHA256
  * @create Jul 02 2025. Johan Cardona. 
  * @description generar hash para cadenas de texto.
- * @param {strin} cadena texto que se va a encriptar.
+ * @param {String} cadena texto que se va a encriptar.
  * @returns texto encriptado
  */
 procesos.generarHashSHA256 = async (cadena) => {
@@ -890,9 +890,7 @@ procesos.ArmarParametrosPageItems = () => {
     $('input[id^="P' + paginaActual + '"], select[id^="P' + paginaActual + '"], textarea[id^="P' + paginaActual + '"]')
     .each((i, it) => {
         // Limpiar el ID removiendo sufijos comunes
-        let idLimpio = it.id.replaceAll('|input', '')
-                            .replaceAll('_HIDDENVALUE', '')
-                            .replaceAll('_DISPLAY', '');
+        let idLimpio = obtenerNombreRealItem(it.id);
         
         // Verificar que el item existe en APEX antes de agregarlo
         if (apex.item(idLimpio).node && !pageItemIds.includes(`#${idLimpio}`)) {
@@ -901,3 +899,36 @@ procesos.ArmarParametrosPageItems = () => {
     });
     return pageItemIds;
 };
+
+/**
+ * @module obtenerNombreRealItem
+ * @example obtenerNombreRealItem('P1_MYITEM|input')
+ * @create Sep 30 2025. Johan Cardona.
+ * @param {String} itemId Id del item que se quiere limpiar
+ * @description Limpia el id del item para obtener el nombre real del item en caso de que tenga sufijos como |input, _HIDDENVALUE, _DISPLAY, _input
+ * @returns {String} Retorna el nombre real del item
+ */
+function obtenerNombreRealItem(itemId) {
+    try {
+        let limpio = itemId
+            .replaceAll('|input', '')
+            .replaceAll('_HIDDENVALUE', '')
+            .replaceAll('_DISPLAY', '')
+            .replaceAll('_input', '')
+            .replaceAll('_month', '')
+            .replaceAll('_year', '')
+            ;
+
+        let elemento = document.getElementById(limpio);
+
+        // Si es un radio, el item real está en el atributo name
+        if (elemento && elemento.type === "radio" && elemento.name) {
+            return elemento.name;
+        }
+
+        return limpio;
+    } catch (error) {
+        safix.procesos.mensajesConsola.error(`Error limpiando el id del item ${itemId}`, error);
+        return itemId;
+    }
+}
