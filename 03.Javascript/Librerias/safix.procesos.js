@@ -955,3 +955,27 @@ function obtenerNombreRealItem(itemId) {
         return itemId;
     }
 }
+
+
+/**
+ * @module procesos.modoAuditoriaIG
+ * @create Sep 03 2025. Juan Esteban Londoño. 
+ * @description {Función que deshabilita los botones de las acciones de un IG y lo deja en modo auditoria}
+ */
+procesos.modoAuditoriaIG = (gridId) => {
+    try {
+        var igRegion = apex.region(gridId);
+
+        if (!igRegion) {
+            console.error("No se encontró el IG con id:", gridId);
+            return;
+        }
+
+        apex.region(gridId).call("getActions").hide("save");
+        apex.region(gridId).call("getActions").hide("selection-add-row");
+        apex.region(gridId).call("getActions").hide("edit");
+        
+    } catch (e) {
+        console.error("Error habilitando edición en IG:", e);
+    }
+}
